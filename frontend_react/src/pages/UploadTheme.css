@@ -1,0 +1,80 @@
+/* Theme-aware Upload Page Styles */
+
+.upload-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.upload-container {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.upload-header h1 {
+  color: var(--text-primary);
+}
+
+.upload-header p {
+  color: var(--text-secondary);
+}
+
+.upload-zone {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.upload-zone:hover {
+  border-color: var(--input-focus);
+  background: var(--bg-hover);
+}
+
+.upload-zone.drag-active {
+  border-color: var(--input-focus);
+  background: var(--bg-hover);
+}
+
+.file-info {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.file-name {
+  color: var(--text-primary);
+}
+
+.file-size {
+  color: var(--text-secondary);
+}
+
+.btn-upload {
+  background: var(--gradient-primary);
+}
+
+.btn-upload:hover {
+  box-shadow: 0 6px 20px var(--card-shadow-hover);
+}
+
+.btn-upload:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+}
+
+.result-card {
+  background: var(--card-bg);
+  border-color: var(--color-success);
+}
+
+.result-card h3 {
+  color: var(--text-primary);
+}
+
+.result-info {
+  color: var(--text-secondary);
+}
+
+.error-card {
+  background: var(--card-bg);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}

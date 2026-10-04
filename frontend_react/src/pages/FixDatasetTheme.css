@@ -1,0 +1,116 @@
+/* Light theme - default styles in FixDatasetPage.css */
+
+/* Dark theme overrides for Fix Dataset page */
+[data-theme="dark"] .fix-dataset-page {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .fix-method-selector,
+[data-theme="dark"] .upload-section,
+[data-theme="dark"] .progress-card,
+[data-theme="dark"] .analysis-card,
+[data-theme="dark"] .result-card {
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .method-option {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .method-option:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="dark"] .method-option.selected {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+[data-theme="dark"] .upload-dropzone {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .upload-dropzone:hover,
+[data-theme="dark"] .upload-dropzone.drag-active {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .upload-dropzone.has-file {
+  background: var(--card-bg);
+}
+
+[data-theme="dark"] .file-preview {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .stat-box,
+[data-theme="dark"] .summary-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .clean-message {
+  background: rgba(40, 167, 69, 0.1);
+}
+
+[data-theme="dark"] .download-card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Ensure text is readable in dark mode */
+[data-theme="dark"] .method-info h4,
+[data-theme="dark"] .method-info p,
+[data-theme="dark"] .dropzone-content h3,
+[data-theme="dark"] .file-info h4,
+[data-theme="dark"] .file-info p,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .stat-value,
+[data-theme="dark"] .summary-label,
+[data-theme="dark"] .summary-value,
+[data-theme="dark"] .download-info h4,
+[data-theme="dark"] .filename {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .or-text,
+[data-theme="dark"] .file-types,
+[data-theme="dark"] .result-card p {
+  color: var(--text-secondary);
+}
+
+/* Keep colored values visible in dark mode */
+[data-theme="dark"] .stat-value.poisoned,
+[data-theme="dark"] .summary-value.poisoned {
+  color: #ff6b6b;
+}
+
+[data-theme="dark"] .stat-value.suspicious,
+[data-theme="dark"] .summary-value.suspicious {
+  color: #ffd93d;
+}
+
+[data-theme="dark"] .stat-value.clean,
+[data-theme="dark"] .summary-value.clean {
+  color: #51cf66;
+}
+
+[data-theme="dark"] .clean-message h4 {
+  color: #51cf66;
+}

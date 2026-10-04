@@ -1,0 +1,217 @@
+/* Theme-aware Dashboard Styles */
+
+.dashboard-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.page-header {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.header-content h1 {
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+}
+
+.stat-card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  color: var(--text-primary);
+}
+
+.chart-card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+}
+
+.chart-card h3 {
+  color: var(--text-primary);
+}
+
+.results-section {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.results-header h2 {
+  color: var(--text-primary);
+}
+
+.results-table {
+  background: var(--card-bg);
+}
+
+.results-table thead {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.results-table th {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.results-table td {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-light);
+}
+
+.results-table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.search-input {
+  background: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--text-primary);
+}
+
+.search-input:focus {
+  border-color: var(--input-focus);
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.filter-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.filter-btn:hover {
+  background: var(--bg-hover);
+}
+
+.filter-btn.active {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+}
+
+.no-data-container {
+  background: var(--card-bg);
+  color: var(--text-secondary);
+}
+
+.no-data-container h3 {
+  color: var(--text-primary);
+}
+
+/* Modal Theme */
+.modal-overlay {
+  background: var(--modal-overlay);
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  color: var(--text-primary);
+}
+
+.modal-header {
+  background: var(--modal-header-bg);
+}
+
+.detail-section {
+  background: var(--bg-tertiary);
+  border-left-color: var(--stat-total);
+}
+
+.detail-section h3 {
+  color: var(--text-primary);
+}
+
+.info-label {
+  color: var(--text-secondary);
+}
+
+.info-value {
+  color: var(--text-primary);
+}
+
+.column-issue {
+  background: var(--card-bg);
+  border-left-color: var(--color-danger);
+}
+
+.column-name strong {
+  color: var(--text-primary);
+}
+
+.column-value {
+  color: var(--text-secondary);
+}
+
+.column-value code {
+  background: var(--bg-tertiary);
+  color: var(--color-danger);
+}
+
+.fix-action, .fix-location, .fix-columns {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.fix-steps {
+  background: var(--card-bg);
+}
+
+.fix-steps li {
+  color: var(--text-secondary);
+}
+
+.values-table {
+  background: var(--card-bg);
+}
+
+.values-table th {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+}
+
+.values-table td {
+  border-bottom-color: var(--border-light);
+  color: var(--text-primary);
+}
+
+.values-table code {
+  background: var(--bg-tertiary);
+  color: var(--color-danger);
+}
+
+.modal-footer {
+  border-top-color: var(--border-color);
+}
+
+/* Recharts theme adjustments */
+[data-theme="dark"] .recharts-text {
+  fill: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .recharts-cartesian-grid-horizontal line,
+[data-theme="dark"] .recharts-cartesian-grid-vertical line {
+  stroke: var(--border-color) !important;
+}
+
+[data-theme="dark"] .recharts-legend-item-text {
+  color: var(--text-primary) !important;
+}

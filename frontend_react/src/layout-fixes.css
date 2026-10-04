@@ -1,0 +1,161 @@
+/* Layout Fixes - Prevent Overlapping */
+
+/* Ensure content doesn't overlap with theme toggle */
+.page-header {
+  padding-right: 80px !important;
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+  .page-header {
+    padding-right: 20px !important;
+  }
+  
+  .main-content {
+    padding-top: 80px !important;
+  }
+}
+
+/* Z-index hierarchy */
+.sidebar {
+  z-index: 100;
+}
+
+.theme-toggle {
+  z-index: 9999;
+}
+
+.modal-overlay {
+  z-index: 10000;
+}
+
+/* Ensure proper spacing */
+.dashboard-page,
+.upload-page,
+.home-page,
+.history-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Fix any potential overflow issues */
+body {
+  overflow-x: hidden;
+}
+
+.main-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure sidebar doesn't overlap content */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix for small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Ensure buttons don't overlap */
+.btn-refresh,
+.btn-upload,
+.cta-button {
+  margin-right: 10px;
+}
+
+/* Fix table overflow */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.results-table {
+  min-width: 100%;
+  width: max-content;
+}
+
+/* Fix chart responsiveness */
+.charts-grid {
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Prevent text overflow */
+.td-fix,
+.td-type,
+.td-location {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Fix modal on small screens */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    margin: 10px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure proper spacing around theme toggle */
+.theme-toggle-space {
+  padding-right: 80px;
+}
+
+/* Fix for upload zone */
+.upload-zone {
+  margin-bottom: 20px;
+}
+
+/* Fix for stat cards on small screens */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}

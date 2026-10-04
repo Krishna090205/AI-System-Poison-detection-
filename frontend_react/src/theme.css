@@ -1,0 +1,195 @@
+/* ============================================
+   THEME SYSTEM - Light & Dark Mode
+   ============================================ */
+
+/* Light Theme (Default) */
+:root,
+[data-theme="light"] {
+  /* Background Colors */
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f9fa;
+  --bg-hover: #e9ecef;
+  
+  /* Text Colors */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --text-inverse: #ffffff;
+  
+  /* Border Colors */
+  --border-color: #e0e0e0;
+  --border-light: #f0f0f0;
+  --border-dark: #d0d0d0;
+  
+  /* Card & Surface */
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: rgba(0, 0, 0, 0.12);
+  
+  /* Status Colors */
+  --color-success: #28a745;
+  --color-warning: #ffa500;
+  --color-danger: #ff4444;
+  --color-info: #17a2b8;
+  
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  --gradient-danger: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+  --gradient-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  
+  /* Stat Card Colors */
+  --stat-total: #667eea;
+  --stat-poisoned: #ff4444;
+  --stat-suspicious: #ffa500;
+  --stat-clean: #28a745;
+  --stat-high-risk: #dc3545;
+  --stat-avg: #17a2b8;
+  
+  /* Chart Colors */
+  --chart-bg: #ffffff;
+  --chart-text: #333333;
+  --chart-grid: #e0e0e0;
+  
+  /* Modal */
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --modal-bg: #ffffff;
+  --modal-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Input & Button */
+  --input-bg: #ffffff;
+  --input-border: #dee2e6;
+  --input-focus: #667eea;
+  --button-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --button-hover: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+  
+  /* Sidebar */
+  --sidebar-bg: #2c3e50;
+  --sidebar-text: #ecf0f1;
+  --sidebar-hover: #34495e;
+  --sidebar-active: #667eea;
+  
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Background Colors */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-tertiary: #0f3460;
+  --bg-hover: #1f4068;
+  
+  /* Text Colors */
+  --text-primary: #e4e4e4;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #808080;
+  --text-inverse: #1a1a2e;
+  
+  /* Border Colors */
+  --border-color: #2d3748;
+  --border-light: #374151;
+  --border-dark: #1f2937;
+  
+  /* Card & Surface */
+  --card-bg: #16213e;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  /* Status Colors (slightly adjusted for dark mode) */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #38bdf8;
+  
+  /* Gradient Colors (brighter for dark mode) */
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  --gradient-danger: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+  --gradient-info: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  
+  /* Stat Card Colors (adjusted for dark mode) */
+  --stat-total: #7c3aed;
+  --stat-poisoned: #f87171;
+  --stat-suspicious: #fbbf24;
+  --stat-clean: #4ade80;
+  --stat-high-risk: #ef4444;
+  --stat-avg: #38bdf8;
+  
+  /* Chart Colors */
+  --chart-bg: #16213e;
+  --chart-text: #e4e4e4;
+  --chart-grid: #2d3748;
+  
+  /* Modal */
+  --modal-overlay: rgba(0, 0, 0, 0.85);
+  --modal-bg: #16213e;
+  --modal-header-bg: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  
+  /* Input & Button */
+  --input-bg: #0f3460;
+  --input-border: #2d3748;
+  --input-focus: #7c3aed;
+  --button-primary: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --button-hover: linear-gradient(135deg, #6d28d9 0%, #db2777 100%);
+  
+  /* Sidebar */
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #e2e8f0;
+  --sidebar-hover: #1e293b;
+  --sidebar-active: #7c3aed;
+  
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+/* Disable transition for theme toggle to avoid flash */
+.theme-toggle,
+.theme-toggle * {
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast) !important;
+}
+
+/* Base styles using theme variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Scrollbar styling for dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: 6px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+}

@@ -1,0 +1,55 @@
+/* Theme-aware History Page Styles */
+
+.history-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.history-header {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.history-header h1 {
+  color: var(--text-primary);
+}
+
+.history-header p {
+  color: var(--text-secondary);
+}
+
+.history-list {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.history-item {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+.history-item:hover {
+  background: var(--bg-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.history-item h3 {
+  color: var(--text-primary);
+}
+
+.history-item p {
+  color: var(--text-secondary);
+}
+
+.history-stats {
+  color: var(--text-secondary);
+}
+
+.no-history {
+  background: var(--card-bg);
+  color: var(--text-secondary);
+}
+
+.no-history h3 {
+  color: var(--text-primary);
+}

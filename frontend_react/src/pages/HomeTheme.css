@@ -1,0 +1,61 @@
+/* Theme-aware Home Page Styles */
+
+.home-page {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.hero-section {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-content h1 {
+  color: var(--text-primary);
+}
+
+.hero-content p {
+  color: var(--text-secondary);
+}
+
+.cta-button {
+  background: var(--gradient-primary);
+}
+
+.cta-button:hover {
+  box-shadow: 0 8px 25px var(--card-shadow-hover);
+}
+
+.features-grid {
+  color: var(--text-primary);
+}
+
+.feature-card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card h3 {
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+}
+
+.stats-section {
+  background: var(--card-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-item h3 {
+  color: var(--text-primary);
+}
+
+.stat-item p {
+  color: var(--text-secondary);
+}

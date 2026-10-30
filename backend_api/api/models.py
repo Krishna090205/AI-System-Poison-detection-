@@ -29,10 +29,13 @@ class AnalysisResponse(BaseModel):
     """Complete analysis response"""
     analysis_id: str
     dataset_id: str
+    filename: Optional[str] = "Dataset"
+    dataset_name: Optional[str] = "Dataset"
     total_samples: int
     poisoned_samples: int
     suspicious_samples: int
     clean_samples: int
+    duplicate_samples: Optional[int] = 0
     avg_poison_score: float
     attack_distribution: Dict[str, int]
     detailed_results: List[Dict]
@@ -44,6 +47,7 @@ class AnalysisResult(BaseModel):
     analysis_time: datetime
     total_samples: int
     poisoned_samples: int
+    duplicate_samples: Optional[int] = 0
     avg_poison_score: float
 
 class HistoryResponse(BaseModel):

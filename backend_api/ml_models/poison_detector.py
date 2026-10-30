@@ -207,12 +207,22 @@ class PoisonDetector:
         clean_count = sum(1 for s in poison_scores if s < 0.3)
         high_risk_count = sum(1 for s in poison_scores if s >= 0.8)
         
+        # Calculate duplicate rows (if original dataframe is available)
+        duplicate_count = 0
+        if original_df is not None:
+            try:
+                duplicate_count = int(original_df.duplicated(keep='first').sum())
+            except Exception as e:
+                logger.warning(f"Could not calculate duplicate rows: {e}")
+                duplicate_count = 0
+        
         summary = {
             'total_samples': len(X),
             'poisoned_samples': poisoned_count,
             'suspicious_samples': suspicious_count,
             'clean_samples': clean_count,
             'high_risk_samples': high_risk_count,
+            'duplicate_samples': duplicate_count,
             'avg_poison_score': self._make_json_safe(np.mean(poison_scores)),
             'max_poison_score': self._make_json_safe(np.max(poison_scores)),
             'min_poison_score': self._make_json_safe(np.min(poison_scores)),

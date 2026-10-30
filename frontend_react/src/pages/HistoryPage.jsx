@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './HistoryPage.css'
 import './HistoryTheme.css'
 
 function HistoryPage() {
+  const navigate = useNavigate()
   const [history, setHistory] = useState([])
   const [loading, setLoading] = useState(false)
   const [selectedResult, setSelectedResult] = useState(null)
@@ -15,26 +17,15 @@ function HistoryPage() {
   const fetchHistory = async () => {
     setLoading(true)
     try {
-      const response = await axios.get('http://localhost:8000/history')
+      const response = await axios.get('http://localhost:8000/history?limit=200')
       const allHistory = response.data.history || []
-      
-      // Group by dataset_name and keep only the latest analysis for each file
-      const uniqueFiles = {}
-      allHistory.forEach(item => {
-        const fileName = item.dataset_name
-        // If file not seen yet, or this analysis is more recent, keep it
-        if (!uniqueFiles[fileName] || 
-            new Date(item.analysis_time) > new Date(uniqueFiles[fileName].analysis_time)) {
-          uniqueFiles[fileName] = item
-        }
-      })
-      
-      // Convert back to array and sort by date (most recent first)
-      const uniqueHistory = Object.values(uniqueFiles).sort((a, b) => 
-        new Date(b.analysis_time) - new Date(a.analysis_time)
+
+      // Preserve all historical runs chronologically (newest first)
+      const sortedHistory = [...allHistory].sort((a, b) => 
+        new Date(b.analysis_time || 0) - new Date(a.analysis_time || 0)
       )
-      
-      setHistory(uniqueHistory)
+
+      setHistory(sortedHistory)
     } catch (error) {
       console.error('Failed to fetch history:', error)
     } finally {
@@ -56,6 +47,18 @@ function HistoryPage() {
     if (score >= 0.7) return 'High Risk'
     if (score >= 0.3) return 'Medium Risk'
     return 'Low Risk'
+  }
+
+  const openInDashboard = (analysisId) => {
+    if (analysisId) {
+      navigate(`/dashboard?id=${analysisId}`)
+    } else {
+      navigate('/dashboard')
+    }
+  }
+
+  const downloadPdf = (analysisId) => {
+    window.open(`http://localhost:8000/download_report/${analysisId}?format=pdf`, '_blank')
   }
 
   return (
@@ -103,23 +106,23 @@ function HistoryPage() {
                   <th>Clean</th>
                   <th>Avg Score</th>
                   <th>Risk Level</th>
-                  <th>Actions</th>
+                  <th style={{ textAlign: 'center' }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {history.map((item) => (
-                  <tr key={item.analysis_id}>
+                {history.map((item, idx) => (
+                  <tr key={item.analysis_id || idx}>
                     <td className="dataset-name">
                       <span className="file-icon">📄</span>
                       {item.dataset_name}
                     </td>
                     <td className="date-time">
-                      {new Date(item.analysis_time).toLocaleString()}
+                      {item.analysis_time ? new Date(item.analysis_time).toLocaleString() : 'Recent'}
                     </td>
                     <td className="text-center">{item.total_samples}</td>
                     <td className="text-center poisoned-count">
                       {item.poisoned_samples}
-                      {item.poisoned_samples > 0 && (
+                      {item.total_samples > 0 && item.poisoned_samples > 0 && (
                         <span className="percentage">
                           ({((item.poisoned_samples / item.total_samples) * 100).toFixed(1)}%)
                         </span>
@@ -127,7 +130,7 @@ function HistoryPage() {
                     </td>
                     <td className="text-center suspicious-count">
                       {item.suspicious_samples}
-                      {item.suspicious_samples > 0 && (
+                      {item.total_samples > 0 && item.suspicious_samples > 0 && (
                         <span className="percentage">
                           ({((item.suspicious_samples / item.total_samples) * 100).toFixed(1)}%)
                         </span>
@@ -147,13 +150,31 @@ function HistoryPage() {
                       </span>
                     </td>
                     <td className="actions-cell">
-                      <button 
-                        className="btn-view" 
-                        onClick={() => viewDetails(item)}
-                        title="View Details"
-                      >
-                        👁️ View
-                      </button>
+                      <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
+                        <button
+                          className="btn-view"
+                          style={{ background: 'var(--gradient-primary)', color: 'white', border: 'none' }}
+                          onClick={() => openInDashboard(item.analysis_id)}
+                          title="Open in Dashboard"
+                        >
+                          📊 Dashboard
+                        </button>
+                        <button
+                          className="btn-view"
+                          onClick={() => viewDetails(item)}
+                          title="View Details"
+                        >
+                          👁️ View
+                        </button>
+                        <button
+                          className="btn-view"
+                          style={{ background: '#fee2e2', color: '#991b1b', borderColor: '#fca5a5' }}
+                          onClick={() => downloadPdf(item.analysis_id)}
+                          title="Download PDF"
+                        >
+                          📄 PDF
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -170,7 +191,7 @@ function HistoryPage() {
               <h2>📊 Analysis Details</h2>
               <button className="btn-close" onClick={() => setSelectedResult(null)}>✕</button>
             </div>
-            
+
             <div className="modal-body">
               <div className="detail-grid">
                 <div className="detail-item">
@@ -180,7 +201,7 @@ function HistoryPage() {
                 <div className="detail-item">
                   <span className="detail-label">Analysis Date</span>
                   <span className="detail-value">
-                    {new Date(selectedResult.analysis_time).toLocaleString()}
+                    {selectedResult.analysis_time ? new Date(selectedResult.analysis_time).toLocaleString() : 'Recent'}
                   </span>
                 </div>
                 <div className="detail-item">
@@ -190,22 +211,25 @@ function HistoryPage() {
                 <div className="detail-item">
                   <span className="detail-label">Poisoned Samples</span>
                   <span className="detail-value poisoned-text">
-                    {selectedResult.poisoned_samples} 
-                    ({((selectedResult.poisoned_samples / selectedResult.total_samples) * 100).toFixed(1)}%)
+                    {selectedResult.poisoned_samples}
+                    {selectedResult.total_samples > 0 && (
+                      ` (${((selectedResult.poisoned_samples / selectedResult.total_samples) * 100).toFixed(1)}%)`
+                    )}
                   </span>
                 </div>
                 <div className="detail-item">
                   <span className="detail-label">Suspicious Samples</span>
                   <span className="detail-value suspicious-text">
                     {selectedResult.suspicious_samples}
-                    ({((selectedResult.suspicious_samples / selectedResult.total_samples) * 100).toFixed(1)}%)
+                    {selectedResult.total_samples > 0 && (
+                      ` (${((selectedResult.suspicious_samples / selectedResult.total_samples) * 100).toFixed(1)}%)`
+                    )}
                   </span>
                 </div>
                 <div className="detail-item">
                   <span className="detail-label">Clean Samples</span>
                   <span className="detail-value clean-text">
                     {selectedResult.clean_samples}
-                    ({((selectedResult.clean_samples / selectedResult.total_samples) * 100).toFixed(1)}%)
                   </span>
                 </div>
                 <div className="detail-item">
@@ -222,22 +246,28 @@ function HistoryPage() {
                 </div>
               </div>
 
-              <div className="modal-actions">
-                <button 
+              <div className="modal-actions" style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
+                <button
                   className="btn-primary"
                   onClick={() => {
-                    window.location.href = '/fix-dataset?analysis_id=' + selectedResult.analysis_id
+                    const id = selectedResult.analysis_id
+                    setSelectedResult(null)
+                    openInDashboard(id)
                   }}
                 >
-                  🔧 Fix This Dataset
+                  📊 Open in Dashboard
                 </button>
-                <button 
+                <button
                   className="btn-secondary"
-                  onClick={() => {
-                    window.location.href = '/dashboard'
-                  }}
+                  onClick={() => downloadPdf(selectedResult.analysis_id)}
                 >
-                  📊 View Dashboard
+                  📄 Download PDF
+                </button>
+                <button
+                  className="btn-secondary"
+                  onClick={() => setSelectedResult(null)}
+                >
+                  Close
                 </button>
               </div>
             </div>

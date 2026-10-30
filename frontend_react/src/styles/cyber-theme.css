@@ -1,0 +1,744 @@
+/* ==========================================================================
+   CYBERSECURITY DESIGN SYSTEM: DUAL THEME TOKENS
+   - Dark Theme (Cyber Dark Base) under :root, [data-theme="dark"]
+   - Light Theme (Warm Cream Base) under [data-theme="light"]
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   DARK THEME (Default)
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme="dark"] {
+  /* Surfaces */
+  --cyber-bg-base: #0A0918;
+  --cyber-bg-sidebar: rgba(255, 255, 255, 0.03);
+  --cyber-topbar-bg: rgba(10, 9, 24, 0.7);
+  --cyber-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+  --cyber-surface-hover: linear-gradient(160deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.03));
+  --cyber-surface-solid: #131226;
+  --cyber-border: rgba(255, 255, 255, 0.10);
+  --cyber-border-hover: rgba(124, 92, 255, 0.35);
+  --cyber-border-focus: #A78BFA;
+
+  /* Page Background Radial Atmosphere */
+  --cyber-bg-glows: 
+    radial-gradient(900px 500px at 85% -10%, rgba(124, 92, 255, 0.35), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(34, 211, 238, 0.16), transparent 60%);
+
+  /* Text */
+  --cyber-text: #F4F3FF;
+  --cyber-text-muted: #A5A1C8;
+  --cyber-text-dim: #6B6794;
+
+  /* Brand & Accent */
+  --cyber-primary: #7C5CFF;
+  --cyber-primary-hover: #6D4AFF;
+  --cyber-primary-2: #5B8CFF;
+  --cyber-accent: #22D3EE;
+  --cyber-brand-gradient: linear-gradient(135deg, #7C5CFF, #22D3EE);
+  --cyber-btn-gradient: linear-gradient(135deg, #7C5CFF 0%, #5B8CFF 100%);
+  --cyber-glow-primary: 0 8px 30px rgba(124, 92, 255, 0.55);
+
+  /* Status Colors (Dark Theme) */
+  --cyber-poisoned: #FF5C7A;
+  --cyber-poisoned-soft: rgba(255, 92, 122, 0.16);
+  --cyber-poisoned-text: #FF8AA0;
+  --cyber-poisoned-border: rgba(255, 92, 122, 0.35);
+
+  --cyber-suspicious: #FFB84D;
+  --cyber-suspicious-soft: rgba(255, 184, 77, 0.16);
+  --cyber-suspicious-text: #FFC978;
+  --cyber-suspicious-border: rgba(255, 184, 77, 0.35);
+
+  --cyber-clean: #34D399;
+  --cyber-clean-soft: rgba(52, 211, 153, 0.16);
+  --cyber-clean-text: #5EE9B5;
+  --cyber-clean-border: rgba(52, 211, 153, 0.35);
+
+  /* Depth & Shadows */
+  --cyber-card-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --cyber-floating-card-bg: rgba(19, 18, 38, 0.85);
+  --cyber-floating-card-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+
+  /* Vibrant Semantic Tile Gradients */
+  --tile-purple: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+  --tile-cyan: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+  --tile-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  --tile-amber: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+  --tile-red: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  --tile-rose: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%);
+
+  /* Vibrant Tile Glows */
+  --glow-purple: 0 8px 24px rgba(139, 92, 246, 0.45);
+  --glow-cyan: 0 8px 24px rgba(6, 182, 212, 0.45);
+  --glow-green: 0 8px 24px rgba(16, 185, 129, 0.45);
+  --glow-amber: 0 8px 24px rgba(245, 158, 11, 0.45);
+  --glow-red: 0 8px 24px rgba(239, 68, 68, 0.45);
+  --glow-rose: 0 8px 24px rgba(244, 63, 94, 0.45);
+
+  /* Colored Card Tints & Borders (Dark Mode) */
+  --card-tint-purple: linear-gradient(160deg, rgba(139, 92, 246, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-purple: rgba(139, 92, 246, 0.35);
+  --card-border-purple-hover: rgba(139, 92, 246, 0.65);
+  --card-glow-purple: 0 10px 32px rgba(139, 92, 246, 0.25);
+
+  --card-tint-cyan: linear-gradient(160deg, rgba(6, 182, 212, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-cyan: rgba(6, 182, 212, 0.35);
+  --card-border-cyan-hover: rgba(6, 182, 212, 0.65);
+  --card-glow-cyan: 0 10px 32px rgba(6, 182, 212, 0.25);
+
+  --card-tint-green: linear-gradient(160deg, rgba(16, 185, 129, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-green: rgba(16, 185, 129, 0.35);
+  --card-border-green-hover: rgba(16, 185, 129, 0.65);
+  --card-glow-green: 0 10px 32px rgba(16, 185, 129, 0.25);
+
+  --card-tint-amber: linear-gradient(160deg, rgba(245, 158, 11, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-amber: rgba(245, 158, 11, 0.35);
+  --card-border-amber-hover: rgba(245, 158, 11, 0.65);
+  --card-glow-amber: 0 10px 32px rgba(245, 158, 11, 0.25);
+
+  --card-tint-red: linear-gradient(160deg, rgba(239, 68, 68, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-red: rgba(239, 68, 68, 0.35);
+  --card-border-red-hover: rgba(239, 68, 68, 0.65);
+  --card-glow-red: 0 10px 32px rgba(239, 68, 68, 0.25);
+
+  --card-tint-rose: linear-gradient(160deg, rgba(244, 63, 94, 0.10) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --card-border-rose: rgba(244, 63, 94, 0.35);
+  --card-border-rose-hover: rgba(244, 63, 94, 0.65);
+  --card-glow-rose: 0 10px 32px rgba(244, 63, 94, 0.25);
+
+  /* Secondary Button & Controls */
+  --cyber-btn-secondary-bg: rgba(255, 255, 255, 0.06);
+  --cyber-btn-secondary-border: rgba(255, 255, 255, 0.18);
+  --cyber-btn-secondary-text: #F4F3FF;
+
+  /* Navigation Specifics */
+  --cyber-nav-active-bg: linear-gradient(90deg, rgba(124, 92, 255, 0.32), rgba(124, 92, 255, 0.08));
+  --cyber-nav-active-ring: rgba(124, 92, 255, 0.55);
+  --cyber-nav-active-text: #FFFFFF;
+  --cyber-protip-bg: linear-gradient(135deg, rgba(124, 92, 255, 0.12), rgba(34, 211, 238, 0.06));
+  --cyber-protip-border: rgba(124, 92, 255, 0.25);
+
+  /* Tables */
+  --cyber-table-border: rgba(255, 255, 255, 0.04);
+  --cyber-table-hover: rgba(124, 92, 255, 0.04);
+
+  /* SVG & Dropzone */
+  --cyber-svg-outer-ring: rgba(124, 92, 255, 0.35);
+  --cyber-svg-inner-ring: rgba(34, 211, 238, 0.25);
+  --cyber-dropzone-border: rgba(167, 139, 250, 0.6);
+  --cyber-dropzone-glow: rgba(124, 92, 255, 0.45);
+
+  /* Charts In Dark Mode */
+  --chart-track-ring: rgba(255, 255, 255, 0.03);
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-tooltip-bg: #131226;
+  --chart-tooltip-border: rgba(255, 255, 255, 0.15);
+  --chart-tooltip-text: #F4F3FF;
+
+  /* Scrollbar */
+  --cyber-scrollbar-track: rgba(10, 9, 24, 0.5);
+  --cyber-scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --cyber-scrollbar-thumb-hover: rgba(124, 92, 255, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT THEME (Warm Cream Shades)
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  /* Surfaces */
+  --cyber-bg-base: #FAF6EE;
+  --cyber-bg-sidebar: #F3EDE0;
+  --cyber-topbar-bg: rgba(250, 246, 238, 0.88);
+  --cyber-surface: #FFFDF8;
+  --cyber-surface-hover: #F7F1E4;
+  --cyber-surface-solid: #FFFDF8;
+  --cyber-border: #E8DFCF;
+  --cyber-border-hover: rgba(109, 74, 255, 0.4);
+  --cyber-border-focus: #6D4AFF;
+
+  /* Page Background Radial Atmosphere (Very soft, warm) */
+  --cyber-bg-glows:
+    radial-gradient(900px 500px at 85% -10%, rgba(124, 92, 255, 0.14), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(244, 176, 120, 0.22), transparent 60%);
+
+  /* Text (Warm browns, never pure black) */
+  --cyber-text: #2B2418;
+  --cyber-text-muted: #6B6252;
+  --cyber-text-dim: #8A8170;
+
+  /* Brand */
+  --cyber-primary: #6D4AFF;
+  --cyber-primary-hover: #5B3FD9;
+  --cyber-primary-2: #4F7BFF;
+  --cyber-accent: #0E9AA7;
+  --cyber-brand-gradient: linear-gradient(135deg, #6D4AFF, #0E9AA7);
+  --cyber-btn-gradient: linear-gradient(135deg, #6D4AFF 0%, #4F7BFF 100%);
+  --cyber-glow-primary: 0 6px 20px rgba(109, 74, 255, 0.35);
+
+  /* Status Colors (Cream Friendly) */
+  --cyber-poisoned: #D6314F;
+  --cyber-poisoned-soft: #FCE8EC;
+  --cyber-poisoned-text: #B4233F;
+  --cyber-poisoned-border: #F3C4CD;
+
+  --cyber-suspicious: #D97706;
+  --cyber-suspicious-soft: #FDF0DC;
+  --cyber-suspicious-text: #8A5200;
+  --cyber-suspicious-border: #F7DCB0;
+
+  --cyber-clean: #1F9D6B;
+  --cyber-clean-soft: #E4F5EC;
+  --cyber-clean-text: #17704C;
+  --cyber-clean-border: #BCE4CF;
+
+  /* Depth & Shadows (Warm brown shadows) */
+  --cyber-card-shadow: 0 8px 28px rgba(60, 45, 20, 0.08), 0 1px 2px rgba(60, 45, 20, 0.06);
+  --cyber-floating-card-bg: #FFFDF8;
+  --cyber-floating-card-shadow: 0 8px 28px rgba(60, 45, 20, 0.08);
+
+  /* Vibrant Semantic Tile Gradients (Light / Cream friendly) */
+  --tile-purple: linear-gradient(135deg, #7C5CFF 0%, #4F46E5 100%);
+  --tile-cyan: linear-gradient(135deg, #0891B2 0%, #2563EB 100%);
+  --tile-green: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --tile-amber: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  --tile-red: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  --tile-rose: linear-gradient(135deg, #E11D48 0%, #9F1239 100%);
+
+  /* Vibrant Tile Glows */
+  --glow-purple: 0 6px 20px rgba(124, 92, 255, 0.35);
+  --glow-cyan: 0 6px 20px rgba(8, 145, 178, 0.35);
+  --glow-green: 0 6px 20px rgba(5, 150, 105, 0.35);
+  --glow-amber: 0 6px 20px rgba(217, 119, 6, 0.35);
+  --glow-red: 0 6px 20px rgba(220, 38, 38, 0.35);
+  --glow-rose: 0 6px 20px rgba(225, 29, 72, 0.35);
+
+  /* Colored Card Tints & Borders (Light Cream Mode) */
+  --card-tint-purple: linear-gradient(160deg, #F7F4FF 0%, #FFFDF8 100%);
+  --card-border-purple: #DCD4FE;
+  --card-border-purple-hover: #A78BFA;
+  --card-glow-purple: 0 8px 24px rgba(124, 92, 255, 0.14);
+
+  --card-tint-cyan: linear-gradient(160deg, #F0F9FF 0%, #FFFDF8 100%);
+  --card-border-cyan: #BAE6FD;
+  --card-border-cyan-hover: #38BDF8;
+  --card-glow-cyan: 0 8px 24px rgba(8, 145, 178, 0.14);
+
+  --card-tint-green: linear-gradient(160deg, #F0FDF4 0%, #FFFDF8 100%);
+  --card-border-green: #BBF7D0;
+  --card-border-green-hover: #34D399;
+  --card-glow-green: 0 8px 24px rgba(5, 150, 105, 0.14);
+
+  --card-tint-amber: linear-gradient(160deg, #FFFBEB 0%, #FFFDF8 100%);
+  --card-border-amber: #FDE68A;
+  --card-border-amber-hover: #FBBF24;
+  --card-glow-amber: 0 8px 24px rgba(217, 119, 6, 0.14);
+
+  --card-tint-red: linear-gradient(160deg, #FEF2F2 0%, #FFFDF8 100%);
+  --card-border-red: #FECDD3;
+  --card-border-red-hover: #FB7185;
+  --card-glow-red: 0 8px 24px rgba(220, 38, 38, 0.14);
+
+  --card-tint-rose: linear-gradient(160deg, #FFF1F2 0%, #FFFDF8 100%);
+  --card-border-rose: #FECDD6;
+  --card-border-rose-hover: #F43F5E;
+  --card-glow-rose: 0 8px 24px rgba(225, 29, 72, 0.14);
+
+  /* Secondary Button & Controls */
+  --cyber-btn-secondary-bg: #FFFDF8;
+  --cyber-btn-secondary-border: #D9CFBB;
+  --cyber-btn-secondary-text: #2B2418;
+
+  /* Navigation Specifics */
+  --cyber-nav-active-bg: rgba(109, 74, 255, 0.12);
+  --cyber-nav-active-ring: rgba(109, 74, 255, 0.35);
+  --cyber-nav-active-text: #4B31B8;
+  --cyber-protip-bg: linear-gradient(135deg, rgba(109, 74, 255, 0.07), rgba(244, 176, 120, 0.12));
+  --cyber-protip-border: #E8DFCF;
+
+  /* Tables */
+  --cyber-table-border: #EFE7D6;
+  --cyber-table-hover: #F7F1E4;
+
+  /* SVG & Dropzone */
+  --cyber-svg-outer-ring: rgba(60, 45, 20, 0.18);
+  --cyber-svg-inner-ring: rgba(60, 45, 20, 0.18);
+  --cyber-dropzone-border: rgba(109, 74, 255, 0.5);
+  --cyber-dropzone-glow: rgba(109, 74, 255, 0.2);
+
+  /* Charts In Light Mode */
+  --chart-track-ring: #EDE4D3;
+  --chart-grid: #EDE4D3;
+  --chart-tooltip-bg: #FFFDF8;
+  --chart-tooltip-border: #E8DFCF;
+  --chart-tooltip-text: #2B2418;
+
+  /* Scrollbar */
+  --cyber-scrollbar-track: #F3EDE0;
+  --cyber-scrollbar-thumb: #D9CFBB;
+  --cyber-scrollbar-thumb-hover: #C4B59E;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED GEOMETRY & GLOBAL RULES
+   -------------------------------------------------------------------------- */
+:root {
+  --cyber-card-radius: 18px;
+  --cyber-card-padding: 22px;
+  --cyber-btn-radius: 12px;
+  --cyber-sidebar-width: 240px;
+  --cyber-topbar-height: 64px;
+
+  /* Legacy variable bridges */
+  --bg-primary: var(--cyber-bg-base);
+  --bg-secondary: var(--cyber-surface-solid);
+  --card-bg: var(--cyber-surface);
+  --text-primary: var(--cyber-text);
+  --text-secondary: var(--cyber-text-muted);
+  --border-color: var(--cyber-border);
+  --primary-500: var(--cyber-primary);
+  --primary-600: var(--cyber-primary);
+}
+
+/* Global Reset & Base */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cyber-bg-base);
+  color: var(--cyber-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Gradient Text Effect */
+.cyber-gradient-text,
+.gradient-text {
+  background: var(--cyber-brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Cyber Card */
+.cyber-card,
+.stat-card,
+.feature-card,
+.upload-card,
+.chart-card,
+.result-card,
+.analysis-card {
+  background: var(--cyber-surface);
+  border: 1px solid var(--cyber-border);
+  border-radius: var(--cyber-card-radius);
+  padding: var(--cyber-card-padding);
+  box-shadow: var(--cyber-card-shadow);
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.cyber-card:hover {
+  border-color: var(--cyber-border-hover);
+}
+
+/* Primary Button (Always white text on vibrant gradient) */
+.cyber-btn-primary,
+.btn-primary,
+.btn-process,
+.btn-clean-primary,
+.btn-upload {
+  background: var(--cyber-btn-gradient) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: var(--cyber-btn-radius) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: var(--cyber-glow-primary) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.cyber-btn-primary:hover:not(:disabled),
+.btn-primary:hover:not(:disabled),
+.btn-process:hover:not(:disabled),
+.btn-clean-primary:hover:not(:disabled),
+.btn-upload:hover:not(:disabled) {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px rgba(109, 74, 255, 0.5) !important;
+}
+
+.cyber-btn-primary:disabled,
+.btn-primary:disabled,
+.btn-process:disabled,
+.btn-clean-primary:disabled,
+.btn-upload:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Secondary Button (Glass in dark, warm off-white in light) */
+.cyber-btn-secondary,
+.btn-secondary,
+.btn-browse {
+  background: var(--cyber-btn-secondary-bg) !important;
+  color: var(--cyber-btn-secondary-text) !important;
+  border: 1px solid var(--cyber-btn-secondary-border) !important;
+  border-radius: var(--cyber-btn-radius) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 200ms ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.cyber-btn-secondary:hover:not(:disabled),
+.btn-secondary:hover:not(:disabled),
+.btn-browse:hover:not(:disabled) {
+  border-color: var(--cyber-border-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Status Pills */
+.cyber-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.cyber-pill.poisoned,
+.badge-poisoned {
+  background: var(--cyber-poisoned-soft);
+  color: var(--cyber-poisoned-text);
+  border: 1px solid var(--cyber-poisoned-border);
+}
+
+.cyber-pill.suspicious,
+.badge-suspicious {
+  background: var(--cyber-suspicious-soft);
+  color: var(--cyber-suspicious-text);
+  border: 1px solid var(--cyber-suspicious-border);
+}
+
+.cyber-pill.clean,
+.badge-clean {
+  background: var(--cyber-clean-soft);
+  color: var(--cyber-clean-text);
+  border: 1px solid var(--cyber-clean-border);
+}
+
+.cyber-pill.brand {
+  background: var(--cyber-nav-active-bg);
+  color: var(--cyber-primary);
+  border: 1px solid var(--cyber-border);
+}
+
+/* ==========================================================================
+   SEMANTIC VIBRANT TILES & CARD TINTS (Earlier UI Colors)
+   ========================================================================== */
+
+/* Tile Gradients */
+.tile-purple {
+  background: var(--tile-purple) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-purple) !important;
+}
+
+.tile-cyan {
+  background: var(--tile-cyan) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-cyan) !important;
+}
+
+.tile-green {
+  background: var(--tile-green) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-green) !important;
+}
+
+.tile-amber {
+  background: var(--tile-amber) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-amber) !important;
+}
+
+.tile-red {
+  background: var(--tile-red) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-red) !important;
+}
+
+.tile-rose {
+  background: var(--tile-rose) !important;
+  color: #FFFFFF !important;
+  box-shadow: var(--glow-rose) !important;
+}
+
+/* Tinted Cards */
+.card-tint-purple {
+  background: var(--card-tint-purple) !important;
+  border-color: var(--card-border-purple) !important;
+}
+.card-tint-purple:hover {
+  border-color: var(--card-border-purple-hover) !important;
+  box-shadow: var(--card-glow-purple) !important;
+}
+
+.card-tint-cyan {
+  background: var(--card-tint-cyan) !important;
+  border-color: var(--card-border-cyan) !important;
+}
+.card-tint-cyan:hover {
+  border-color: var(--card-border-cyan-hover) !important;
+  box-shadow: var(--card-glow-cyan) !important;
+}
+
+.card-tint-green {
+  background: var(--card-tint-green) !important;
+  border-color: var(--card-border-green) !important;
+}
+.card-tint-green:hover {
+  border-color: var(--card-border-green-hover) !important;
+  box-shadow: var(--card-glow-green) !important;
+}
+
+.card-tint-amber {
+  background: var(--card-tint-amber) !important;
+  border-color: var(--card-border-amber) !important;
+}
+.card-tint-amber:hover {
+  border-color: var(--card-border-amber-hover) !important;
+  box-shadow: var(--card-glow-amber) !important;
+}
+
+.card-tint-red {
+  background: var(--card-tint-red) !important;
+  border-color: var(--card-border-red) !important;
+}
+.card-tint-red:hover {
+  border-color: var(--card-border-red-hover) !important;
+  box-shadow: var(--card-glow-red) !important;
+}
+
+.card-tint-rose {
+  background: var(--card-tint-rose) !important;
+  border-color: var(--card-border-rose) !important;
+}
+.card-tint-rose:hover {
+  border-color: var(--card-border-rose-hover) !important;
+  box-shadow: var(--card-glow-rose) !important;
+}
+
+/* Rich Status Pills */
+.cyber-pill.purple {
+  background: rgba(139, 92, 246, 0.16);
+  color: #A78BFA;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+[data-theme="light"] .cyber-pill.purple {
+  background: #F3EEFF;
+  color: #6D4AFF;
+  border: 1px solid #D8CEFD;
+}
+
+.cyber-pill.cyan {
+  background: rgba(6, 182, 212, 0.16);
+  color: #22D3EE;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+[data-theme="light"] .cyber-pill.cyan {
+  background: #E6F7FA;
+  color: #0891B2;
+  border: 1px solid #B6E5EE;
+}
+
+/* Focus outline */
+*:focus-visible {
+  outline: 2px solid var(--cyber-border-focus);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   SHARED CYBER MODAL SYSTEM
+   ========================================================================== */
+.cyber-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px 20px;
+}
+
+.cyber-modal-box {
+  background: var(--cyber-surface-solid);
+  border: 1px solid var(--cyber-border);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyber-border);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 200ms ease;
+}
+
+.modal-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--cyber-border);
+  background: var(--cyber-surface);
+  flex-shrink: 0;
+}
+
+.modal-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cyber-text);
+  letter-spacing: -0.01em;
+}
+
+.modal-subtitle {
+  font-size: 12.5px;
+  color: var(--cyber-text-muted);
+}
+
+.btn-modal-close {
+  background: var(--cyber-surface-hover);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px;
+  color: var(--cyber-text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease;
+}
+
+.btn-modal-close:hover {
+  color: var(--cyber-text);
+  border-color: var(--cyber-border-hover);
+  background: var(--cyber-nav-active-bg);
+}
+
+.modal-body-scroll {
+  padding: 22px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Forensic Stat Ribbon */
+.modal-stat-ribbon {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--cyber-surface-hover);
+  border: 1px solid var(--cyber-border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.ribbon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 12px 10px;
+  background: var(--cyber-surface-solid);
+  border: 1px solid var(--cyber-border);
+  border-radius: 10px;
+}
+
+.ribbon-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--cyber-text-muted);
+  text-transform: uppercase;
+  display: block;
+  line-height: 1.2;
+}
+
+.ribbon-val {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cyber-text);
+  display: block;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.modal-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 18px 24px;
+  border-top: 1px solid var(--cyber-border);
+  background: var(--cyber-surface);
+  flex-shrink: 0;
+}
+
+.modal-footer-bar .cyber-btn-secondary,
+.modal-footer-bar .cyber-btn-primary,
+.modal-footer-bar .btn-modal-action {
+  padding: 10px 22px !important;
+  font-size: 13.5px !important;
+  min-height: 42px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}

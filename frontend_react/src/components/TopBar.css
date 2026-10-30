@@ -1,0 +1,133 @@
+/* ==========================================================================
+   CYBERSECURITY TOP BAR (Dual Theme)
+   ========================================================================== */
+
+.topbar {
+  height: var(--cyber-topbar-height, 64px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  background: var(--cyber-topbar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cyber-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.breadcrumb-root {
+  color: var(--cyber-text-muted);
+  font-weight: 500;
+}
+
+.breadcrumb-divider {
+  color: var(--cyber-text-dim);
+}
+
+.breadcrumb-current {
+  color: var(--cyber-text);
+  font-weight: 600;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+.status-pill.online {
+  background: var(--cyber-clean-soft);
+  border: 1px solid var(--cyber-clean-border);
+  color: var(--cyber-clean-text);
+}
+
+.status-pill.offline {
+  background: var(--cyber-poisoned-soft);
+  border: 1px solid var(--cyber-poisoned-border);
+  color: var(--cyber-poisoned-text);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-pill.online .status-dot {
+  background: var(--cyber-clean);
+  box-shadow: 0 0 8px var(--cyber-clean);
+  animation: pulse-green 2s infinite;
+}
+
+.status-pill.offline .status-dot {
+  background: var(--cyber-poisoned);
+  box-shadow: 0 0 8px var(--cyber-poisoned);
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 var(--cyber-clean);
+  }
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.mobile-sidebar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--cyber-text);
+  border-radius: 2px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding: 0 20px;
+  }
+  .mobile-sidebar-toggle {
+    display: flex;
+  }
+}

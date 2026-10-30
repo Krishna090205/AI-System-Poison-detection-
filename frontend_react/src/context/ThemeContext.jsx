@@ -2,7 +2,6 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const ThemeContext = createContext()
 
-// Export ThemeContext for direct use if needed
 export { ThemeContext }
 
 export const useTheme = () => {
@@ -15,13 +14,22 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Get theme from localStorage or default to 'light'
+    // 1. Check localStorage
     const savedTheme = localStorage.getItem('theme')
-    return savedTheme || 'light'
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme
+    }
+    // 2. Default to system preference
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light'
+      }
+    }
+    // 3. Default to light
+    return 'light'
   })
 
   useEffect(() => {
-    // Apply theme to document
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
   }, [theme])
@@ -31,7 +39,7 @@ export const ThemeProvider = ({ children }) => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === 'dark' }}>
       {children}
     </ThemeContext.Provider>
   )

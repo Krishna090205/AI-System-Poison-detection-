@@ -114,3 +114,92 @@
 [data-theme="dark"] .clean-message h4 {
   color: #51cf66;
 }
+
+
+/* Dark mode enhancements for new premium cards */
+[data-theme="dark"] .workflow-step-card,
+[data-theme="dark"] .download-cta-card,
+[data-theme="dark"] .kpi-card {
+  background: var(--card-bg, #1e1b4b);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .preloaded-dataset-card {
+  background: linear-gradient(180deg, rgba(124, 92, 255, 0.1) 0%, rgba(20, 18, 40, 0.6) 100%);
+  border-color: rgba(124, 92, 255, 0.4);
+}
+
+[data-theme="dark"] .preload-stat-box {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .tag-neutral {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .btn-switch-file,
+[data-theme="dark"] .btn-action-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .btn-switch-file:hover,
+[data-theme="dark"] .btn-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .strategy-card {
+  background: var(--card-bg, #1a1738);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .strategy-card:hover {
+  border-color: #7c5cff;
+}
+
+[data-theme="dark"] .strategy-card.selected {
+  background: linear-gradient(180deg, rgba(124, 92, 255, 0.15) 0%, rgba(20, 18, 40, 0.8) 100%);
+  border-color: #7c5cff;
+}
+
+[data-theme="dark"] .strategy-desc {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .perk-item {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .strategy-perks {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .zero-reupload-banner {
+  background: rgba(124, 92, 255, 0.15);
+  border-color: rgba(124, 92, 255, 0.3);
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .banner-text {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .results-hero-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(124, 92, 255, 0.1) 100%);
+  border-color: #10b981;
+}
+
+[data-theme="dark"] .hero-desc {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .guarantee-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
+}
